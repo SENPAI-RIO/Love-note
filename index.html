@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>From Michi to her Love Trevor</title>
+  
+  <!-- Retro Pixel Fonts from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600;700&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Scanline & Retro TV CRT effect overlay -->
+  <div class="crt-overlay"></div>
+
+  <!-- Main Game Container / Card -->
+  <main class="pixel-card-wrapper">
+    <div class="pixel-card">
+      
+      <!-- Top Banner Header -->
+      <header class="card-header">
+        <div class="cat-avatar-icon" id="headerCatIcon"></div>
+        <h1 class="header-title">From Michi to her Love Trevor</h1>
+      </header>
+
+      <!-- SCREEN 1: QUESTION SCREEN -->
+      <section id="screenQuestion" class="game-screen active-screen">
+        
+        <!-- Speech Bubble with Heart -->
+        <div class="speech-bubble-container">
+          <div class="pixel-speech-bubble">
+            <svg class="pixel-heart-icon icon-purple" viewBox="0 0 16 16" width="36" height="36">
+              <path fill="currentColor" d="M2 3h4v2H2zM10 3h4v2h-4zM1 5h6v2H1zM9 5h6v2H9zM1 7h14v2H1zM2 9h12v2H2zM3 11h10v2H3zM5 13h6v2H5zM7 15h2v1H7z"/>
+            </svg>
+          </div>
+        </div>
+
+        <h2 class="question-text">Do you love me?</h2>
+        
+        <!-- Interactive Buttons Container -->
+        <div class="buttons-wrapper" id="buttonsWrapper">
+          <button id="btnYes" class="pixel-btn btn-yes" aria-label="Yes I love you">
+            <svg class="pixel-heart-icon icon-light" viewBox="0 0 16 16" width="20" height="20">
+              <path fill="currentColor" d="M2 3h4v2H2zM10 3h4v2h-4zM1 5h6v2H1zM9 5h6v2H9zM1 7h14v2H1zM2 9h12v2H2zM3 11h10v2H3zM5 13h6v2H5zM7 15h2v1H7z"/>
+            </svg>
+            <span class="btn-label">YES</span>
+            <span class="sparkle-particle"></span>
+          </button>
+          
+          <button id="btnNo" class="pixel-btn btn-no" aria-label="No">
+            <span class="btn-label">NO</span>
+            <svg class="pixel-broken-heart-icon icon-teal" viewBox="0 0 16 16" width="20" height="20">
+              <path fill="currentColor" d="M2 3h3v2H2zM11 3h3v2h-3zM1 5h5v2H1zM10 5h5v2h-5zM1 7h4v2H1zM8 7h7v2H8zM2 9h7v2H2zM11 9h3v2h-3zM3 11h5v2H3zM10 11h3v2h-3zM5 13h3v2H5zM7 15h2v1H7z"/>
+            </svg>
+          </button>
+        </div>
+
+        <p class="subtext-caption">♥ Your Answer means the world to me ♥</p>
+      </section>
+
+      <!-- SCREEN 2: VICTORY SCREEN ("YAY!") -->
+      <section id="screenVictory" class="game-screen hidden-screen">
+        
+        <!-- Pixel Cat Frame Art -->
+        <div class="victory-frame-outer">
+          <div class="victory-frame-inner">
+            <div class="pixel-sparkles-top">✦ ✧ ✦</div>
+            <div class="cat-illustration-box" id="victoryCatIllustration"></div>
+            <div class="pixel-sparkles-bottom">✧ ✦ ✧</div>
+          </div>
+        </div>
+
+        <h2 class="victory-title">YAY!</h2>
+        
+        <div class="victory-hearts-row">
+          <span class="pixel-mini-heart">♥</span>
+          <p class="victory-subtext">I am so glad You said Yes!</p>
+          <span class="pixel-mini-heart">♥</span>
+        </div>
+
+        <button id="btnContinue" class="pixel-btn btn-continue">
+          <span>PRESS TO CONTINUE</span>
+          <span class="btn-arrow">→</span>
+        </button>
+      </section>
+
+      <!-- Animated Background Pixel Scenery Layer inside card -->
+      <div class="scenery-container">
+        <!-- Floating sparkles & twinkling stars -->
+        <div class="stars-layer" id="starsLayer"></div>
+
+        <!-- Pixel Clouds -->
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+        <div class="cloud cloud-3"></div>
+
+        <!-- City Skyline & Bridge -->
+        <div class="pixel-skyline"></div>
+        <div class="pixel-bridge"></div>
+        
+        <!-- Water reflection -->
+        <div class="water-reflection"></div>
+
+        <!-- Foreground: Street Lamp & Kitty on grass -->
+        <div class="foreground-layer">
+          <div class="street-lamp" id="streetLampGraphic"></div>
+          <div class="purple-tree" id="purpleTreeGraphic"></div>
+          <div class="sitting-kitty" id="kittyGraphic"></div>
+        </div>
+      </div>
+
+      <!-- Card Footer -->
+      <footer class="card-footer">
+        <span class="footer-heart">♥</span>
+        <div class="footer-text-group">
+          <span>Made with all my heart Just For You</span>
+          <span class="footer-divider">|</span>
+          <span class="footer-highlight">Rio was Here :3</span>
+        </div>
+        <span class="footer-heart">♥</span>
+      </footer>
+
+    </div>
+  </main>
+
+  <!-- RETRO DIALOGUE BOX MODAL -->
+  <div id="dialogueModal" class="modal-overlay hidden-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="pixel-dialogue-box">
+      <div class="dialogue-header-bar">
+        <span class="dialogue-dot"></span>
+        <span class="dialogue-dot"></span>
+        <span class="dialogue-dot"></span>
+      </div>
+      <div class="dialogue-content">
+        <div class="dialogue-cat-icon"></div>
+        <h3 id="modalTitle" class="dialogue-heading">GOOD BOY!</h3>
+        <p class="dialogue-subtext">I knew you would say YES! ♥</p>
+      </div>
+      <div class="dialogue-footer">
+        <button id="btnModalOk" class="pixel-btn btn-modal-ok">OKAY! ♡</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/pixel-graphics.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
